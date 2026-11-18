@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "juh00000000000000007",
+  "displayName": "Financials",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "b1ff19cc62e0e3a74a0a",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F0F7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Juhayna Studio background'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "glass-Financials.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "230d4f28b2f23fc4feae",
+      "target": "d58dd48f81490316d5f6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "230d4f28b2f23fc4feae",
+      "target": "c5d8583779f19725d831",
+      "type": "DataFilter"
+    },
+    {
+      "source": "230d4f28b2f23fc4feae",
+      "target": "60dbb0cd43724ff4e4ca",
+      "type": "DataFilter"
+    },
+    {
+      "source": "230d4f28b2f23fc4feae",
+      "target": "0ae22e0e0482fc57eaf1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "230d4f28b2f23fc4feae",
+      "target": "2763352d5fb7233809b1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "230d4f28b2f23fc4feae",
+      "target": "52a91549a1ab295cc494",
+      "type": "DataFilter"
+    },
+    {
+      "source": "52a91549a1ab295cc494",
+      "target": "d58dd48f81490316d5f6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "52a91549a1ab295cc494",
+      "target": "c5d8583779f19725d831",
+      "type": "DataFilter"
+    },
+    {
+      "source": "52a91549a1ab295cc494",
+      "target": "60dbb0cd43724ff4e4ca",
+      "type": "DataFilter"
+    },
+    {
+      "source": "52a91549a1ab295cc494",
+      "target": "0ae22e0e0482fc57eaf1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "52a91549a1ab295cc494",
+      "target": "230d4f28b2f23fc4feae",
+      "type": "DataFilter"
+    },
+    {
+      "source": "52a91549a1ab295cc494",
+      "target": "2763352d5fb7233809b1",
+      "type": "DataFilter"
+    }
+  ]
+}

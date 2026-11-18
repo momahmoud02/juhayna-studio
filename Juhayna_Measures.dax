@@ -1,0 +1,241 @@
+// Juhayna Studio — complete DAX measure library
+
+Net Sales =
+SUM(Fact_Sales[Net_Sales_EGP])
+
+Gross Sales =
+SUM(Fact_Sales[Gross_Sales_EGP])
+
+Discounts =
+SUM(Fact_Sales[Discount_EGP])
+
+Returns =
+SUM(Fact_Sales[Returns_EGP])
+
+Sales Bn =
+DIVIDE([Net Sales],1000000000)
+
+Gross Sales Bn =
+DIVIDE([Gross Sales],1000000000)
+
+Discounts Bn =
+DIVIDE([Discounts],1000000000)
+
+Returns Bn =
+DIVIDE([Returns],1000000000)
+
+Discount Rate =
+DIVIDE([Discounts],[Gross Sales])
+
+Return Rate =
+DIVIDE([Returns],[Gross Sales])
+
+Revenue Leakage Rate =
+DIVIDE([Discounts]+[Returns],[Gross Sales])
+
+Transactions =
+COUNTROWS(Fact_Sales)
+
+Units Sold =
+SUM(Fact_Sales[Quantity_Units])
+
+Avg Transaction Value =
+DIVIDE([Net Sales],[Transactions])
+
+Avg Transaction K =
+DIVIDE([Avg Transaction Value],1000)
+
+Estimated COGS =
+SUM(Fact_Sales[Estimated_COGS_EGP])
+
+Estimated Gross Profit =
+SUM(Fact_Sales[Estimated_Gross_Profit_EGP])
+
+Gross Profit Bn =
+DIVIDE([Estimated Gross Profit],1000000000)
+
+COGS Bn =
+DIVIDE([Estimated COGS],1000000000)
+
+Gross Margin =
+DIVIDE([Estimated Gross Profit],[Net Sales])
+
+Cost Ratio =
+DIVIDE([Estimated COGS],[Net Sales])
+
+Active Customers =
+DISTINCTCOUNT(Fact_Sales[Customer_ID])
+
+Selling Products =
+DISTINCTCOUNT(Fact_Sales[Product_ID])
+
+Sales per Active Customer =
+DIVIDE([Net Sales],[Active Customers])
+
+Transactions per Customer =
+DIVIDE([Transactions],[Active Customers])
+
+Returning Customers =
+COUNTROWS(FILTER(VALUES(Dim_Customer[Customer_ID]),[Transactions]>1))
+
+Repeat Customer Rate =
+DIVIDE([Returning Customers],[Active Customers])
+
+Last Data Date =
+CALCULATE(MAX(Fact_Sales[Order_Date]),REMOVEFILTERS())
+
+Sales Comparable =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Net Sales],KEEPFILTERS(d)))
+
+Sales LY =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+
+Gross Profit Comparable =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Estimated Gross Profit],KEEPFILTERS(d)))
+
+Gross Profit LY =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Estimated Gross Profit],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+
+Transactions Comparable =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Transactions],KEEPFILTERS(d)))
+
+Transactions LY =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Transactions],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+
+Margin Comparable =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Gross Margin],KEEPFILTERS(d)))
+
+Margin LY =
+VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Gross Margin],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+
+Sales LY Bn =
+DIVIDE([Sales LY],1000000000)
+
+Sales YoY =
+DIVIDE([Sales Comparable]-[Sales LY],[Sales LY])
+
+Gross Profit YoY =
+DIVIDE([Gross Profit Comparable]-[Gross Profit LY],[Gross Profit LY])
+
+Transactions YoY =
+DIVIDE([Transactions Comparable]-[Transactions LY],[Transactions LY])
+
+Margin Change pp =
+IF(NOT ISBLANK([Margin LY]),([Margin Comparable]-[Margin LY])*100)
+
+Sales YTD =
+VAR endDate=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN IF(HASONEVALUE(Dim_Date[Year]),CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],DATE(YEAR(endDate),1,1),endDate)))
+
+Gross Profit YTD =
+VAR endDate=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN IF(HASONEVALUE(Dim_Date[Year]),CALCULATE([Estimated Gross Profit],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],DATE(YEAR(endDate),1,1),endDate)))
+
+Sales Previous Month =
+IF(HASONEVALUE(Dim_Date[Year_Month]),VAR d=MIN(Dim_Date[Date]) VAR startDate=EOMONTH(d,-2)+1 VAR endDate=EOMONTH(d,-1) RETURN CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],startDate,endDate)))
+
+Sales MoM =
+IF(HASONEVALUE(Dim_Date[Year_Month]),DIVIDE([Net Sales]-[Sales Previous Month],[Sales Previous Month]))
+
+Rolling 3M Sales =
+VAR endDate=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],EOMONTH(endDate,-3)+1,endDate))
+
+Product Rank =
+IF(NOT ISBLANK([Net Sales]),RANKX(ALLSELECTED(Dim_Product[Product_Name]),[Net Sales],,DESC,DENSE))
+
+Customer Rank =
+IF(NOT ISBLANK([Net Sales]),RANKX(ALLSELECTED(Dim_Customer[Customer_Name]),[Net Sales],,DESC,DENSE))
+
+Region Rank =
+IF(NOT ISBLANK([Net Sales]),RANKX(ALLSELECTED(Dim_Customer[Region]),[Net Sales],,DESC,DENSE))
+
+Segment Share =
+DIVIDE([Net Sales],CALCULATE([Net Sales],ALLSELECTED(Dim_Product[Segment])))
+
+Region Share =
+DIVIDE([Net Sales],CALCULATE([Net Sales],ALLSELECTED(Dim_Customer[Region])))
+
+Customer Share =
+DIVIDE([Net Sales],CALCULATE([Net Sales],ALLSELECTED(Dim_Customer[Customer_Name])))
+
+Top 5 Customer Share =
+VAR topCustomers=TOPN(5,ALLSELECTED(Dim_Customer[Customer_Name]),[Net Sales],DESC,Dim_Customer[Customer_Name],ASC) RETURN DIVIDE(SUMX(topCustomers,[Net Sales]),CALCULATE([Net Sales],ALLSELECTED(Dim_Customer[Customer_Name])))
+
+Top 5 Product Share =
+VAR topProducts=TOPN(5,ALLSELECTED(Dim_Product[Product_Name]),[Net Sales],DESC,Dim_Product[Product_Name],ASC) RETURN DIVIDE(SUMX(topProducts,[Net Sales]),CALCULATE([Net Sales],ALLSELECTED(Dim_Product[Product_Name])))
+
+Sales Top 5 Products =
+IF([Product Rank]<=5,[Sales Bn])
+
+Sales Top 10 Customers =
+IF([Customer Rank]<=10,[Sales Bn])
+
+Reported Net Sales =
+IF(HASONEVALUE(Dim_Period[Period]),SUM(Fact_Financials[Net_Sales_EGP]))
+
+Reported Gross Profit =
+IF(HASONEVALUE(Dim_Period[Period]),SUM(Fact_Financials[Gross_Profit_EGP]))
+
+Reported Net Profit =
+IF(HASONEVALUE(Dim_Period[Period]),SUM(Fact_Financials[Net_Profit_After_Tax_EGP]))
+
+Reported Cost of Sales =
+IF(HASONEVALUE(Dim_Period[Period]),COALESCE(SUM(Fact_Financials[Cost_of_Sales_EGP]),[Reported Net Sales]-[Reported Gross Profit]))
+
+Reported Sales Bn =
+DIVIDE([Reported Net Sales],1000000000)
+
+Reported GP Bn =
+DIVIDE([Reported Gross Profit],1000000000)
+
+Reported NP Bn =
+DIVIDE([Reported Net Profit],1000000000)
+
+Reported Gross Margin =
+DIVIDE([Reported Gross Profit],[Reported Net Sales])
+
+Reported Net Margin =
+DIVIDE([Reported Net Profit],[Reported Net Sales])
+
+Reported Sales LY =
+VAR p=SELECTEDVALUE(Dim_Period[Period]) VAR label=IF(LEFT(p,2)="FY","FY","9M") VAR y=SELECTEDVALUE(Dim_Period[Year]) RETURN IF(NOT ISBLANK(p),CALCULATE(SUM(Fact_Financials[Net_Sales_EGP]),REMOVEFILTERS(Dim_Period),Dim_Period[Period]=label & FORMAT(y-1,"0")))
+
+Reported Sales YoY =
+DIVIDE([Reported Net Sales]-[Reported Sales LY],[Reported Sales LY])
+
+Simulated Sales in Reported Period =
+VAR startDate=SELECTEDVALUE(Dim_Period[Start_Date]) VAR endDate=SELECTEDVALUE(Dim_Period[End_Date]) RETURN IF(NOT ISBLANK(startDate),CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),REMOVEFILTERS(Dim_Product),REMOVEFILTERS(Dim_Customer),REMOVEFILTERS(Dim_Channel),DATESBETWEEN(Dim_Date[Date],startDate,endDate)))
+
+Reconciliation Difference =
+IF(NOT ISBLANK([Reported Net Sales]),[Simulated Sales in Reported Period]-[Reported Net Sales])
+
+Reconciliation Status =
+VAR v=[Reconciliation Difference] RETURN IF(ISBLANK(v),"Select one reported period",IF(ABS(v)<=1,"Matched to the workbook period anchor","Monthly simulation is not calibrated to this interim period"))
+
+Period Caption =
+VAR rangeStart=MIN(Dim_Date[Date]) VAR rangeEnd=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN IF(rangeStart>rangeEnd,"No transactions in selected dates",FORMAT(rangeStart,"dd MMM yyyy") & " — " & FORMAT(rangeEnd,"dd MMM yyyy"))
+
+Sales YoY Caption =
+IF(ISBLANK([Sales YoY]),"No prior-year comparison",FORMAT([Sales YoY],"+0.0%;-0.0%;0.0%") & " vs same dates LY")
+
+GP YoY Caption =
+IF(ISBLANK([Gross Profit YoY]),"No prior-year comparison",FORMAT([Gross Profit YoY],"+0.0%;-0.0%;0.0%") & " vs same dates LY")
+
+Transactions YoY Caption =
+IF(ISBLANK([Transactions YoY]),"No prior-year comparison",FORMAT([Transactions YoY],"+0.0%;-0.0%;0.0%") & " vs same dates LY")
+
+Margin Change Caption =
+IF(ISBLANK([Margin Change pp]),"Estimated allocation",FORMAT([Margin Change pp],"+0.0;-0.0;0.0") & " pp vs same dates LY")
+
+YoY Color =
+IF(ISBLANK([Sales YoY]),"#4F6881",IF([Sales YoY]>=0,"#288047","#C14545"))
+
+Top Product Caption =
+VAR t=TOPN(1,ALLSELECTED(Dim_Product[Product_Name]),[Net Sales],DESC,Dim_Product[Product_Name],ASC) RETURN IF(ISBLANK([Net Sales]),"No transactions",CONCATENATEX(t,Dim_Product[Product_Name],", "))
+
+Top Region Caption =
+VAR t=TOPN(1,ALLSELECTED(Dim_Customer[Region]),[Net Sales],DESC,Dim_Customer[Region],ASC) RETURN IF(ISBLANK([Net Sales]),"No transactions",CONCATENATEX(t,Dim_Customer[Region],", "))
+
+Quality Notice =
+"Hybrid portfolio data | simulated transactions & cost allocation | 2026 ends 30 Sep"
+
+Financial Scope Notice =
+"Reported-period selector only | business slicers do not allocate consolidated net profit"

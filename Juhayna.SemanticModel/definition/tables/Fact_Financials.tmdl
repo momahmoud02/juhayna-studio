@@ -1,0 +1,92 @@
+table Fact_Financials
+	lineageTag: 6aa43441-074c-4bf5-945c-77026de85bc2
+
+	column Period
+		dataType: string
+		isHidden
+		lineageTag: d72d1491-f598-429e-971f-92b75f7858f8
+		summarizeBy: none
+		sourceColumn: Period
+
+	column Year
+		dataType: int64
+		isHidden
+		lineageTag: 7b30062e-dbf3-46c4-bfb3-c386e4be6f3c
+		summarizeBy: none
+		sourceColumn: Year
+
+	column Start_Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: c3397a7b-2cf4-421e-b588-3ed14c41f001
+		summarizeBy: none
+		sourceColumn: Start_Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column End_Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: f62991ef-7077-4b8d-a19c-35a3acbc4be8
+		summarizeBy: none
+		sourceColumn: End_Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Net_Sales_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: aa348ad1-064e-4e59-9803-148d236355ab
+		summarizeBy: none
+		sourceColumn: Net_Sales_EGP
+
+	column Cost_of_Sales_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: e7367910-e49f-4f13-9095-8883a2742034
+		summarizeBy: none
+		sourceColumn: Cost_of_Sales_EGP
+
+	column Gross_Profit_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: 30825450-9d8f-428d-9858-9d470bdfdd04
+		summarizeBy: none
+		sourceColumn: Gross_Profit_EGP
+
+	column Net_Profit_After_Tax_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: d76f6e6d-470c-49a4-ac8c-71a9de655881
+		summarizeBy: none
+		sourceColumn: Net_Profit_After_Tax_EGP
+
+	column Data_Status
+		dataType: string
+		lineageTag: e3f976dd-61dd-458f-93dd-32c26fb98ada
+		summarizeBy: none
+		sourceColumn: Data_Status
+
+	column Source_Reference
+		dataType: string
+		lineageTag: 3b66fae4-77b7-43f8-a378-bdeaf77e363c
+		summarizeBy: none
+		sourceColumn: Source_Reference
+
+	partition Fact_Financials = m
+		mode: import
+		source =
+				let
+				    Sheet = SourceWorkbook{[Item="Financial_Actuals",Kind="Sheet"]}[Data],
+				    Headers = Table.PromoteHeaders(Sheet,[PromoteAllScalars=true]),
+				    Selected = Table.SelectColumns(Headers,{"Period","Year","Start_Date","End_Date","Net_Sales_EGP","Cost_of_Sales_EGP","Gross_Profit_EGP","Net_Profit_After_Tax_EGP","Data_Status","Source_Reference"}),
+				    Typed = Table.TransformColumnTypes(Selected,{{"Period",type text},{"Year",Int64.Type},{"Start_Date",type date},{"End_Date",type date},{"Net_Sales_EGP",Currency.Type},{"Cost_of_Sales_EGP",Currency.Type},{"Gross_Profit_EGP",Currency.Type},{"Net_Profit_After_Tax_EGP",Currency.Type},{"Data_Status",type text},{"Source_Reference",type text}},"en-US")
+				in
+				    Typed
+

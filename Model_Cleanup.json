@@ -1,0 +1,48 @@
+{
+  "removedTables": [
+    "Fact_Targets",
+    "Fact_ReportedSegments",
+    "QA_Monthly",
+    "Reference_Dictionary",
+    "Reference_Readme"
+  ],
+  "removedColumns": [
+    "Fact_Sales.Year",
+    "Fact_Sales.Quarter",
+    "Fact_Sales.Month",
+    "Fact_Sales.Governorate",
+    "Fact_Sales.Region",
+    "Fact_Sales.Unit_Price_EGP",
+    "Fact_Sales.Data_Type",
+    "Fact_Sales.Period_Anchor",
+    "Dim_Product.Storage_Type",
+    "Dim_Product.Pack_Size",
+    "Dim_Product.Base_Unit_Price_EGP",
+    "Dim_Product.Product_Data_Type",
+    "Dim_Product.Base_Unit_Price_EGP_As_Of",
+    "Dim_Customer.City",
+    "Dim_Customer.Customer_Data_Type",
+    "Dim_Date.Month_Name",
+    "Dim_Date.Day",
+    "Dim_Date.Day_Name",
+    "Dim_Date.Is_Weekend",
+    "Dim_Date.Month_Short",
+    "Dim_Date.Month_Start",
+    "Fact_Financials.Gross_Margin_%",
+    "Reference_Sources.Source_ID",
+    "Reference_Sources.Used_For"
+  ],
+  "removedMeasures": [
+    "Target In Scope",
+    "Sales Target",
+    "Target Bn",
+    "Target Achievement",
+    "Target Variance",
+    "Target Status",
+    "Reported Segment Bn"
+  ],
+  "finalTables": 9,
+  "finalColumns": 44,
+  "finalMeasures": 80,
+  "originalWorkbookUnchanged": true
+}

@@ -1,0 +1,60 @@
+table Dim_Date
+	lineageTag: d65deb84-2128-482c-ab49-2f51804ea98e
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: dd MMM yyyy
+		lineageTag: 5755f15c-8e98-4e5c-8b17-d0a18c3c76d2
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 17bbbfe2-33c2-4812-9f12-0f7c3d3db145
+		summarizeBy: none
+		sourceColumn: Year
+
+	column Quarter
+		dataType: string
+		lineageTag: fcbcf166-ea86-417b-9b20-01b9da4e9bb0
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	column Month_Number
+		dataType: int64
+		isHidden
+		lineageTag: a269ddd6-85bd-4be3-a340-4dc1e71b66d0
+		summarizeBy: none
+		sourceColumn: Month_Number
+
+	column Year_Month
+		dataType: string
+		lineageTag: de58d195-4ca5-4c62-8704-2bab3da2a2d7
+		summarizeBy: none
+		sourceColumn: Year_Month
+		sortByColumn: YearMonthKey
+
+	column YearMonthKey
+		dataType: int64
+		isHidden
+		lineageTag: 586f9952-3b80-4a8f-a062-364507eeb92d
+		summarizeBy: none
+		sourceColumn: YearMonthKey
+
+	partition Dim_Date = m
+		mode: import
+		source =
+				let
+				    Sheet = SourceWorkbook{[Item="Date",Kind="Sheet"]}[Data],
+				    Headers = Table.PromoteHeaders(Sheet,[PromoteAllScalars=true]),
+				    Selected = Table.SelectColumns(Headers,{"Date","Year","Quarter","Month_Number","Year_Month"}),
+				    Typed = Table.TransformColumnTypes(Selected,{{"Date",type date},{"Year",Int64.Type},{"Quarter",type text},{"Month_Number",Int64.Type},{"Year_Month",type text}},"en-US"),
+				    WithKey = Table.AddColumn(Typed,"YearMonthKey",each [Year]*100+[Month_Number],Int64.Type)
+				in
+				    WithKey
+

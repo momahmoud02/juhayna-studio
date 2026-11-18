@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "juh00000000000000003",
+  "displayName": "Regions",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "e0f49ae50739cd6d1091",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F0F7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Juhayna Studio background'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "glass-Regions.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "0a9661895392b4a9a3b6",
+      "target": "49bd7a6d17441a0a48a2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0a9661895392b4a9a3b6",
+      "target": "405d5b2d67cee2f11753",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0a9661895392b4a9a3b6",
+      "target": "41232f85264a1706d735",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0a9661895392b4a9a3b6",
+      "target": "ec49f682f29756b014c6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0a9661895392b4a9a3b6",
+      "target": "f00022a858efcf8dcbab",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49bd7a6d17441a0a48a2",
+      "target": "0a9661895392b4a9a3b6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49bd7a6d17441a0a48a2",
+      "target": "405d5b2d67cee2f11753",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49bd7a6d17441a0a48a2",
+      "target": "41232f85264a1706d735",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49bd7a6d17441a0a48a2",
+      "target": "ec49f682f29756b014c6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49bd7a6d17441a0a48a2",
+      "target": "f00022a858efcf8dcbab",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ec49f682f29756b014c6",
+      "target": "0a9661895392b4a9a3b6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ec49f682f29756b014c6",
+      "target": "49bd7a6d17441a0a48a2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ec49f682f29756b014c6",
+      "target": "405d5b2d67cee2f11753",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ec49f682f29756b014c6",
+      "target": "41232f85264a1706d735",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ec49f682f29756b014c6",
+      "target": "f00022a858efcf8dcbab",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f00022a858efcf8dcbab",
+      "target": "0a9661895392b4a9a3b6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f00022a858efcf8dcbab",
+      "target": "49bd7a6d17441a0a48a2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f00022a858efcf8dcbab",
+      "target": "405d5b2d67cee2f11753",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f00022a858efcf8dcbab",
+      "target": "41232f85264a1706d735",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f00022a858efcf8dcbab",
+      "target": "ec49f682f29756b014c6",
+      "type": "DataFilter"
+    }
+  ]
+}

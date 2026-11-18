@@ -1,0 +1,33 @@
+table Dim_Product
+	lineageTag: 3b973347-0607-4645-bd1e-6ef6ea02ab2c
+
+	column Product_ID
+		dataType: string
+		isHidden
+		lineageTag: 8d69fd24-61df-4689-836c-3e5a630dd419
+		summarizeBy: none
+		sourceColumn: Product_ID
+
+	column Product_Name
+		dataType: string
+		lineageTag: 558ee90f-769d-4fc5-bae9-35f39e2821fc
+		summarizeBy: none
+		sourceColumn: Product_Name
+
+	column Segment
+		dataType: string
+		lineageTag: f793a419-9f1f-46c8-b3ad-0fa90d4ce14f
+		summarizeBy: none
+		sourceColumn: Segment
+
+	partition Dim_Product = m
+		mode: import
+		source =
+				let
+				    Sheet = SourceWorkbook{[Item="Products",Kind="Sheet"]}[Data],
+				    Headers = Table.PromoteHeaders(Sheet,[PromoteAllScalars=true]),
+				    Selected = Table.SelectColumns(Headers,{"Product_ID","Product_Name","Segment"}),
+				    Typed = Table.TransformColumnTypes(Selected,{{"Product_ID",type text},{"Product_Name",type text},{"Segment",type text}},"en-US")
+				in
+				    Typed
+

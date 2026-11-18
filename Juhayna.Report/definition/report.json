@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU10",
+      "reportVersionAtImport": {
+        "visual": "2.14.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "JuhaynaStudioLight.json",
+      "reportVersionAtImport": {
+        "visual": "2.14.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU10",
+          "path": "BaseThemes/Fluent2-CY26SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "glass-Customers.png",
+          "path": "glass-Customers.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Details.png",
+          "path": "glass-Details.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Financials.png",
+          "path": "glass-Financials.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Home.png",
+          "path": "glass-Home.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Methodology.png",
+          "path": "glass-Methodology.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Overview.png",
+          "path": "glass-Overview.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Products.png",
+          "path": "glass-Products.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Profitability.png",
+          "path": "glass-Profitability.png",
+          "type": "Image"
+        },
+        {
+          "name": "glass-Regions.png",
+          "path": "glass-Regions.png",
+          "type": "Image"
+        },
+        {
+          "name": "JuhaynaStudioLight.json",
+          "path": "JuhaynaStudioLight.json",
+          "type": "CustomTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "useEnhancedTooltips": true
+  }
+}

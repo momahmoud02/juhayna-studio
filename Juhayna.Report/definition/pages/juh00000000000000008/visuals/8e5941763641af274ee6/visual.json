@@ -1,0 +1,257 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "8e5941763641af274ee6",
+  "position": {
+    "x": 1130,
+    "y": 373,
+    "width": 720,
+    "height": 596,
+    "z": 20,
+    "tabOrder": 20
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "2026 stops on 30 September. No Q4 transactions.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "YoY compares the same selected dates, not nine months against a full year.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Gross margin = gross profit ÷ sales. Costs are period-level allocations.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "No invented sales targets. Redundant summaries and unused source fields are excluded from the model.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "FY2025 and 9M2025 overlap. Select one reported period. Net profit is never assigned to regions or products.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Ctrl+click the navigation in Desktop. Slicers synchronize across analysis pages.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#36566D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

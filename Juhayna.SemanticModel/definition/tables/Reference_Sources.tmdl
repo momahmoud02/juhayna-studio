@@ -1,0 +1,27 @@
+table Reference_Sources
+	lineageTag: 43f16629-fb0e-4e97-a8e9-dd7e3507d622
+
+	column Source_Name
+		dataType: string
+		lineageTag: d1810271-3cf6-403c-ab79-23f6df420575
+		summarizeBy: none
+		sourceColumn: Source_Name
+
+	column URL
+		dataType: string
+		lineageTag: 76536bca-f6b9-432c-8dae-bf6b8bc8b22e
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: URL
+
+	partition Reference_Sources = m
+		mode: import
+		source =
+				let
+				    Sheet = SourceWorkbook{[Item="Sources",Kind="Sheet"]}[Data],
+				    Headers = Table.PromoteHeaders(Sheet,[PromoteAllScalars=true]),
+				    Selected = Table.SelectColumns(Headers,{"Source_Name","URL"}),
+				    Typed = Table.TransformColumnTypes(Selected,{{"Source_Name",type text},{"URL",type text}},"en-US")
+				in
+				    Typed
+

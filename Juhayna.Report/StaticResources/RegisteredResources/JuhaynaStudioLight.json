@@ -1,0 +1,94 @@
+{
+  "name": "Juhayna Studio Light",
+  "dataColors": [
+    "#187CB4",
+    "#55A783",
+    "#EBA14A",
+    "#8873A7",
+    "#6DBCCA",
+    "#9FCAB8"
+  ],
+  "background": "#F0F7F5",
+  "foreground": "#123C60",
+  "tableAccent": "#187CB4",
+  "good": "#27825B",
+  "bad": "#BD5555",
+  "neutral": "#66818F",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 32,
+      "color": "#123C60"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 16,
+      "color": "#123C60"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13,
+      "color": "#36566D"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 12,
+      "color": "#36566D"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": false
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "fontSize": 32,
+            "color": {
+              "solid": {
+                "color": "#123C60"
+              }
+            },
+            "labelDisplayUnits": 1
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": false
+          }
+        ],
+        "wordWrap": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "grid": [
+          {
+            "rowPadding": 3
+          }
+        ]
+      }
+    }
+  }
+}

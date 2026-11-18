@@ -1,0 +1,15 @@
+﻿{
+    "Pages":  9,
+    "Visuals":  451,
+    "Tables":  9,
+    "Measures":  80,
+    "DaxChecks":  15,
+    "NativePageChecks":  9,
+    "EmbeddedModelBytes":  7931316,
+    "PBIXBytes":  17408035,
+    "PBIXSHA256":  "6F74E76D512A7EA989ADF37A954820102D7636AC9B87FEC0243699601F2CD318",
+    "WorkbookSHA256":  "B7EDEDA1061ACB2C7E691DD6A0118103D8C1B18DA7CEDA638A9892D8EAD3BFFC",
+    "OriginalWorkbookPreserved":  true,
+    "AllResourcesPresent":  true,
+    "Passed":  true
+}

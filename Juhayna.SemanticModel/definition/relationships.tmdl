@@ -1,0 +1,20 @@
+relationship rel_1
+	fromColumn: Fact_Sales.Product_ID
+	toColumn: Dim_Product.Product_ID
+
+relationship rel_2
+	fromColumn: Fact_Sales.Customer_ID
+	toColumn: Dim_Customer.Customer_ID
+
+relationship rel_3
+	fromColumn: Fact_Sales.Order_Date
+	toColumn: Dim_Date.Date
+
+relationship rel_4
+	fromColumn: Fact_Sales.Channel
+	toColumn: Dim_Channel.Channel
+
+relationship rel_5
+	fromColumn: Fact_Financials.Period
+	toColumn: Dim_Period.Period
+

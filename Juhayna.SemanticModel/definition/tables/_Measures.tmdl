@@ -1,0 +1,403 @@
+table _Measures
+	lineageTag: 196a5ac4-d6a6-4380-bc69-e1ad10744242
+
+	measure 'Net Sales' = SUM(Fact_Sales[Net_Sales_EGP])
+		formatString: #,0.00
+		displayFolder: 01 Sales
+		lineageTag: 17619c17-481d-4a9f-b7b3-48cbe4c5f3df
+
+	measure 'Gross Sales' = SUM(Fact_Sales[Gross_Sales_EGP])
+		formatString: #,0.00
+		displayFolder: 01 Sales
+		lineageTag: e8f50713-13d3-4024-b4fb-365fde6f8043
+
+	measure Discounts = SUM(Fact_Sales[Discount_EGP])
+		formatString: #,0.00
+		displayFolder: 01 Sales
+		lineageTag: 0e1e545a-d350-49b6-931c-9fb21f50a33a
+
+	measure Returns = SUM(Fact_Sales[Returns_EGP])
+		formatString: #,0.00
+		displayFolder: 01 Sales
+		lineageTag: e7486d7a-5fbb-4b37-8956-2fe516ba157c
+
+	measure 'Sales Bn' = DIVIDE([Net Sales],1000000000)
+		formatString: 0.00
+		displayFolder: 01 Sales
+		lineageTag: fa503665-2ad3-43c7-b57f-f3fc4060ec64
+
+	measure 'Gross Sales Bn' = DIVIDE([Gross Sales],1000000000)
+		formatString: 0.00
+		displayFolder: 01 Sales
+		lineageTag: d8ff0287-56c8-42d1-9b3c-fba80239c94f
+
+	measure 'Discounts Bn' = DIVIDE([Discounts],1000000000)
+		formatString: 0.00
+		displayFolder: 01 Sales
+		lineageTag: c47a5558-9e36-4cb1-8f32-4868be740445
+
+	measure 'Returns Bn' = DIVIDE([Returns],1000000000)
+		formatString: 0.00
+		displayFolder: 01 Sales
+		lineageTag: 9f4749d4-2879-4200-ae5b-81bf3613dbcb
+
+	measure 'Discount Rate' = DIVIDE([Discounts],[Gross Sales])
+		formatString: 0.0%
+		displayFolder: 01 Sales
+		lineageTag: 7a5c45d6-d2df-4ad7-80cc-2200bf192871
+
+	measure 'Return Rate' = DIVIDE([Returns],[Gross Sales])
+		formatString: 0.0%
+		displayFolder: 01 Sales
+		lineageTag: b7b2b4d4-5a3d-4f66-be15-19ad63d75aa6
+
+	measure 'Revenue Leakage Rate' = DIVIDE([Discounts]+[Returns],[Gross Sales])
+		formatString: 0.0%
+		displayFolder: 01 Sales
+		lineageTag: 99096c33-5a4a-4219-b3de-3563ce9db96d
+
+	measure Transactions = COUNTROWS(Fact_Sales)
+		formatString: #,0
+		displayFolder: 01 Sales
+		lineageTag: d2647693-48c5-46eb-8e44-a3e6aa6c6af3
+
+	measure 'Units Sold' = SUM(Fact_Sales[Quantity_Units])
+		formatString: #,0
+		displayFolder: 01 Sales
+		lineageTag: 21182431-cfdf-4329-bba7-774eb6b31865
+
+	measure 'Avg Transaction Value' = DIVIDE([Net Sales],[Transactions])
+		formatString: #,0.00
+		displayFolder: 01 Sales
+		lineageTag: 95d1076a-d831-4d78-9556-a1e317de449f
+
+	measure 'Avg Transaction K' = DIVIDE([Avg Transaction Value],1000)
+		formatString: 0.0
+		displayFolder: 01 Sales
+		lineageTag: 83cf4fc3-ed77-4727-b9dc-de0374807300
+
+	measure 'Estimated COGS' = SUM(Fact_Sales[Estimated_COGS_EGP])
+		formatString: #,0.00
+		displayFolder: 02 Profitability
+		lineageTag: c99751b7-7e6c-440d-8a37-cfc9df03f74c
+
+	measure 'Estimated Gross Profit' = SUM(Fact_Sales[Estimated_Gross_Profit_EGP])
+		formatString: #,0.00
+		displayFolder: 02 Profitability
+		lineageTag: 79cdd375-8d90-4016-9a21-e2f97d1509d7
+
+	measure 'Gross Profit Bn' = DIVIDE([Estimated Gross Profit],1000000000)
+		formatString: 0.00
+		displayFolder: 02 Profitability
+		lineageTag: 7f24a7f0-f4f8-4955-ad5c-59f3f87e0ff4
+
+	measure 'COGS Bn' = DIVIDE([Estimated COGS],1000000000)
+		formatString: 0.00
+		displayFolder: 02 Profitability
+		lineageTag: 6f521be9-5f18-4a28-9fd8-aca035ee1da7
+
+	measure 'Gross Margin' = DIVIDE([Estimated Gross Profit],[Net Sales])
+		formatString: 0.0%
+		displayFolder: 02 Profitability
+		lineageTag: fc5e54f0-095d-4b05-99f4-25643d4763c9
+
+	measure 'Cost Ratio' = DIVIDE([Estimated COGS],[Net Sales])
+		formatString: 0.0%
+		displayFolder: 02 Profitability
+		lineageTag: 3020134a-bbad-4b5b-8614-2f9a65439b4d
+
+	measure 'Active Customers' = DISTINCTCOUNT(Fact_Sales[Customer_ID])
+		formatString: #,0
+		displayFolder: 03 Customers
+		lineageTag: 938b5b11-37fd-4209-a973-b3280172e799
+
+	measure 'Selling Products' = DISTINCTCOUNT(Fact_Sales[Product_ID])
+		formatString: #,0
+		displayFolder: 03 Customers
+		lineageTag: bd868e1b-d3cd-4f10-a629-8606bc8cd5f7
+
+	measure 'Sales per Active Customer' = DIVIDE([Net Sales],[Active Customers])
+		formatString: #,0.00
+		displayFolder: 03 Customers
+		lineageTag: 3602a018-9d41-4435-840a-9c69aecd9362
+
+	measure 'Transactions per Customer' = DIVIDE([Transactions],[Active Customers])
+		formatString: 0.0
+		displayFolder: 03 Customers
+		lineageTag: b23b0a71-eb7a-46b0-a3f9-da3157b18737
+
+	measure 'Returning Customers' = COUNTROWS(FILTER(VALUES(Dim_Customer[Customer_ID]),[Transactions]>1))
+		formatString: #,0
+		displayFolder: 03 Customers
+		lineageTag: 420dc0e9-4266-4250-99bf-563935897414
+
+	measure 'Repeat Customer Rate' = DIVIDE([Returning Customers],[Active Customers])
+		formatString: 0.0%
+		displayFolder: 03 Customers
+		lineageTag: 341b8246-0427-4930-a47c-9ecb346404d9
+
+	measure 'Last Data Date' = CALCULATE(MAX(Fact_Sales[Order_Date]),REMOVEFILTERS())
+		formatString: dd MMM yyyy
+		displayFolder: 04 Time Intelligence
+		lineageTag: 06977850-90ad-4155-bdd5-d1f9a1b93edd
+
+	measure 'Sales Comparable' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Net Sales],KEEPFILTERS(d)))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 7b3275d5-6cd8-4735-8d84-006d8ea5d2a3
+
+	measure 'Sales LY' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 505b053a-3f8d-4889-a420-d60f536f11ca
+
+	measure 'Gross Profit Comparable' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Estimated Gross Profit],KEEPFILTERS(d)))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 1dcef0df-bc21-494d-aa18-b926241cc371
+
+	measure 'Gross Profit LY' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Estimated Gross Profit],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 23b8bb69-3adf-484d-9f09-ad8019c50dcb
+
+	measure 'Transactions Comparable' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Transactions],KEEPFILTERS(d)))
+		formatString: #,0
+		displayFolder: 04 Time Intelligence
+		lineageTag: ed38c1ef-74cf-46a3-8863-ee7597def81b
+
+	measure 'Transactions LY' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Transactions],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+		formatString: #,0
+		displayFolder: 04 Time Intelligence
+		lineageTag: 49af94d8-5478-44ed-90a9-650eb5a24e9a
+
+	measure 'Margin Comparable' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Gross Margin],KEEPFILTERS(d)))
+		formatString: 0.0%
+		displayFolder: 04 Time Intelligence
+		lineageTag: 3bd362da-da77-4552-95db-fe35771e5614
+
+	measure 'Margin LY' = VAR d=FILTER(VALUES(Dim_Date[Date]),Dim_Date[Date]<=[Last Data Date] && Dim_Date[Date]>=DATE(2024,1,1)) VAR p=SELECTCOLUMNS(d,"PriorDate",EDATE(Dim_Date[Date],-12)) RETURN IF(COUNTROWS(d)=0,BLANK(),CALCULATE([Gross Margin],REMOVEFILTERS(Dim_Date),TREATAS(p,Dim_Date[Date])))
+		formatString: 0.0%
+		displayFolder: 04 Time Intelligence
+		lineageTag: ec9f55b8-3c6e-433f-8355-2b0979365ebb
+
+	measure 'Sales LY Bn' = DIVIDE([Sales LY],1000000000)
+		formatString: 0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 6dac81f1-fb18-4f76-a225-0efaa3fd2be7
+
+	measure 'Sales YoY' = DIVIDE([Sales Comparable]-[Sales LY],[Sales LY])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Time Intelligence
+		lineageTag: e5834c6a-2ab8-4f86-94d4-1c0a0becd85f
+
+	measure 'Gross Profit YoY' = DIVIDE([Gross Profit Comparable]-[Gross Profit LY],[Gross Profit LY])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Time Intelligence
+		lineageTag: d29ae31a-124b-4a7b-96ec-146f9a86bf2b
+
+	measure 'Transactions YoY' = DIVIDE([Transactions Comparable]-[Transactions LY],[Transactions LY])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Time Intelligence
+		lineageTag: a03dbc75-33c3-4fec-a828-c6735aef327b
+
+	measure 'Margin Change pp' = IF(NOT ISBLANK([Margin LY]),([Margin Comparable]-[Margin LY])*100)
+		formatString: +0.0;-0.0;0.0
+		displayFolder: 04 Time Intelligence
+		lineageTag: 631d2c2e-87b4-4d97-a324-4affd92188b3
+
+	measure 'Sales YTD' = VAR endDate=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN IF(HASONEVALUE(Dim_Date[Year]),CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],DATE(YEAR(endDate),1,1),endDate)))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: cd7adcd8-a2a3-44a4-9e25-0979eb07067f
+
+	measure 'Gross Profit YTD' = VAR endDate=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN IF(HASONEVALUE(Dim_Date[Year]),CALCULATE([Estimated Gross Profit],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],DATE(YEAR(endDate),1,1),endDate)))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 934e8bef-6755-48a2-9413-be5f5e18ab8c
+
+	measure 'Sales Previous Month' = IF(HASONEVALUE(Dim_Date[Year_Month]),VAR d=MIN(Dim_Date[Date]) VAR startDate=EOMONTH(d,-2)+1 VAR endDate=EOMONTH(d,-1) RETURN CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],startDate,endDate)))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 44d468c3-f556-4d7f-99e2-5bd0efa750c7
+
+	measure 'Sales MoM' = IF(HASONEVALUE(Dim_Date[Year_Month]),DIVIDE([Net Sales]-[Sales Previous Month],[Sales Previous Month]))
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Time Intelligence
+		lineageTag: 6ed7b958-53b2-4642-923d-98baaddbe111
+
+	measure 'Rolling 3M Sales' = VAR endDate=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),DATESBETWEEN(Dim_Date[Date],EOMONTH(endDate,-3)+1,endDate))
+		formatString: #,0.00
+		displayFolder: 04 Time Intelligence
+		lineageTag: 846d5a04-91cc-4fca-b8de-e3570e15acff
+
+	measure 'Product Rank' = IF(NOT ISBLANK([Net Sales]),RANKX(ALLSELECTED(Dim_Product[Product_Name]),[Net Sales],,DESC,DENSE))
+		formatString: 0
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: cd61cd5a-bbfe-4f6f-94a6-2ede0aa7d269
+
+	measure 'Customer Rank' = IF(NOT ISBLANK([Net Sales]),RANKX(ALLSELECTED(Dim_Customer[Customer_Name]),[Net Sales],,DESC,DENSE))
+		formatString: 0
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 3bcd31ca-69ff-414a-b8bb-19ed0535785e
+
+	measure 'Region Rank' = IF(NOT ISBLANK([Net Sales]),RANKX(ALLSELECTED(Dim_Customer[Region]),[Net Sales],,DESC,DENSE))
+		formatString: 0
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 846c7eb4-c8e0-4b17-858c-b90947ea2e44
+
+	measure 'Segment Share' = DIVIDE([Net Sales],CALCULATE([Net Sales],ALLSELECTED(Dim_Product[Segment])))
+		formatString: 0.0%
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: b1f55bef-9fe0-407b-bd4d-b42ae97733fe
+
+	measure 'Region Share' = DIVIDE([Net Sales],CALCULATE([Net Sales],ALLSELECTED(Dim_Customer[Region])))
+		formatString: 0.0%
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 9ebf9b07-8029-4c8b-9a0f-47bf62a0626d
+
+	measure 'Customer Share' = DIVIDE([Net Sales],CALCULATE([Net Sales],ALLSELECTED(Dim_Customer[Customer_Name])))
+		formatString: 0.0%
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 543065f0-3d90-4b63-8a5a-1203360d11f9
+
+	measure 'Top 5 Customer Share' = VAR topCustomers=TOPN(5,ALLSELECTED(Dim_Customer[Customer_Name]),[Net Sales],DESC,Dim_Customer[Customer_Name],ASC) RETURN DIVIDE(SUMX(topCustomers,[Net Sales]),CALCULATE([Net Sales],ALLSELECTED(Dim_Customer[Customer_Name])))
+		formatString: 0.0%
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 3675ea63-f7c3-46ff-9c4b-f5bc39539e08
+
+	measure 'Top 5 Product Share' = VAR topProducts=TOPN(5,ALLSELECTED(Dim_Product[Product_Name]),[Net Sales],DESC,Dim_Product[Product_Name],ASC) RETURN DIVIDE(SUMX(topProducts,[Net Sales]),CALCULATE([Net Sales],ALLSELECTED(Dim_Product[Product_Name])))
+		formatString: 0.0%
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: e3499784-9d13-4a47-8f11-2e23aa062cd2
+
+	measure 'Sales Top 5 Products' = IF([Product Rank]<=5,[Sales Bn])
+		formatString: 0.00
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 0e6e0b5d-eb99-4182-ba8c-84fd1872b7a0
+
+	measure 'Sales Top 10 Customers' = IF([Customer Rank]<=10,[Sales Bn])
+		formatString: 0.00
+		displayFolder: 06 Ranking & Contribution
+		lineageTag: 931a30fd-334e-44da-b010-beecea58ab2a
+
+	measure 'Reported Net Sales' = IF(HASONEVALUE(Dim_Period[Period]),SUM(Fact_Financials[Net_Sales_EGP]))
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 22c1bd04-9190-470a-a281-364bc7398f30
+
+	measure 'Reported Gross Profit' = IF(HASONEVALUE(Dim_Period[Period]),SUM(Fact_Financials[Gross_Profit_EGP]))
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: e8006495-35c8-4775-9cf2-cf03c913033c
+
+	measure 'Reported Net Profit' = IF(HASONEVALUE(Dim_Period[Period]),SUM(Fact_Financials[Net_Profit_After_Tax_EGP]))
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: c5fa6b05-e3e3-4430-b33f-1c6977dd4031
+
+	measure 'Reported Cost of Sales' = IF(HASONEVALUE(Dim_Period[Period]),COALESCE(SUM(Fact_Financials[Cost_of_Sales_EGP]),[Reported Net Sales]-[Reported Gross Profit]))
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: ddc8e2c8-ef62-4e37-a042-a87bef56662d
+
+	measure 'Reported Sales Bn' = DIVIDE([Reported Net Sales],1000000000)
+		formatString: 0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: af17e510-ff02-4bbb-9284-eb8bff1787f2
+
+	measure 'Reported GP Bn' = DIVIDE([Reported Gross Profit],1000000000)
+		formatString: 0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 3c3f04c3-6132-40bf-9f43-8c9a3abc1b3a
+
+	measure 'Reported NP Bn' = DIVIDE([Reported Net Profit],1000000000)
+		formatString: 0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 091ec251-021a-483e-9e41-1be236b586fe
+
+	measure 'Reported Gross Margin' = DIVIDE([Reported Gross Profit],[Reported Net Sales])
+		formatString: 0.0%
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 84500b77-8571-472e-ac99-ffac481efa78
+
+	measure 'Reported Net Margin' = DIVIDE([Reported Net Profit],[Reported Net Sales])
+		formatString: 0.0%
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 1916c4fb-0af6-4c99-800c-05cb5f9fca28
+
+	measure 'Reported Sales LY' = VAR p=SELECTEDVALUE(Dim_Period[Period]) VAR label=IF(LEFT(p,2)="FY","FY","9M") VAR y=SELECTEDVALUE(Dim_Period[Year]) RETURN IF(NOT ISBLANK(p),CALCULATE(SUM(Fact_Financials[Net_Sales_EGP]),REMOVEFILTERS(Dim_Period),Dim_Period[Period]=label & FORMAT(y-1,"0")))
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: be79b0f1-c5b8-4506-859b-5e0a79ece7d8
+
+	measure 'Reported Sales YoY' = DIVIDE([Reported Net Sales]-[Reported Sales LY],[Reported Sales LY])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 9f9825ee-351a-4711-92d4-9aed92ea136b
+
+	measure 'Simulated Sales in Reported Period' = VAR startDate=SELECTEDVALUE(Dim_Period[Start_Date]) VAR endDate=SELECTEDVALUE(Dim_Period[End_Date]) RETURN IF(NOT ISBLANK(startDate),CALCULATE([Net Sales],REMOVEFILTERS(Dim_Date),REMOVEFILTERS(Dim_Product),REMOVEFILTERS(Dim_Customer),REMOVEFILTERS(Dim_Channel),DATESBETWEEN(Dim_Date[Date],startDate,endDate)))
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 357447d6-da5e-4fc9-8594-10e135c810e9
+
+	measure 'Reconciliation Difference' = IF(NOT ISBLANK([Reported Net Sales]),[Simulated Sales in Reported Period]-[Reported Net Sales])
+		formatString: #,0.00
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: 90bd671c-faaa-44ef-80ab-1a7ad6d724c9
+
+	measure 'Reconciliation Status' = VAR v=[Reconciliation Difference] RETURN IF(ISBLANK(v),"Select one reported period",IF(ABS(v)<=1,"Matched to the workbook period anchor","Monthly simulation is not calibrated to this interim period"))
+		displayFolder: 07 Workbook Reported Financials
+		lineageTag: cfc7b0cc-3129-4198-91fa-414503bbbff8
+
+	measure 'Period Caption' = VAR rangeStart=MIN(Dim_Date[Date]) VAR rangeEnd=MIN(MAX(Dim_Date[Date]),[Last Data Date]) RETURN IF(rangeStart>rangeEnd,"No transactions in selected dates",FORMAT(rangeStart,"dd MMM yyyy") & " — " & FORMAT(rangeEnd,"dd MMM yyyy"))
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 9bb91c80-07b8-4965-ac90-cadaf38b86cc
+
+	measure 'Sales YoY Caption' = IF(ISBLANK([Sales YoY]),"No prior-year comparison",FORMAT([Sales YoY],"+0.0%;-0.0%;0.0%") & " vs same dates LY")
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 861b352a-ed00-4258-a1f5-d5c2ae643d66
+
+	measure 'GP YoY Caption' = IF(ISBLANK([Gross Profit YoY]),"No prior-year comparison",FORMAT([Gross Profit YoY],"+0.0%;-0.0%;0.0%") & " vs same dates LY")
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 0aa11b1a-fddb-46e5-9d6a-acdd78e2ea9b
+
+	measure 'Transactions YoY Caption' = IF(ISBLANK([Transactions YoY]),"No prior-year comparison",FORMAT([Transactions YoY],"+0.0%;-0.0%;0.0%") & " vs same dates LY")
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 49dc8c5f-fdc1-4223-90e9-396cc4a43ae9
+
+	measure 'Margin Change Caption' = IF(ISBLANK([Margin Change pp]),"Estimated allocation",FORMAT([Margin Change pp],"+0.0;-0.0;0.0") & " pp vs same dates LY")
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 68d50cfd-6977-4175-bd60-6fbd31d34104
+
+	measure 'YoY Color' = IF(ISBLANK([Sales YoY]),"#4F6881",IF([Sales YoY]>=0,"#288047","#C14545"))
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 9c2c9cde-d280-4287-9582-dd13fb304e74
+
+	measure 'Top Product Caption' = VAR t=TOPN(1,ALLSELECTED(Dim_Product[Product_Name]),[Net Sales],DESC,Dim_Product[Product_Name],ASC) RETURN IF(ISBLANK([Net Sales]),"No transactions",CONCATENATEX(t,Dim_Product[Product_Name],", "))
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: f5fbb58c-5190-4703-b21e-d6115a80e3d2
+
+	measure 'Top Region Caption' = VAR t=TOPN(1,ALLSELECTED(Dim_Customer[Region]),[Net Sales],DESC,Dim_Customer[Region],ASC) RETURN IF(ISBLANK([Net Sales]),"No transactions",CONCATENATEX(t,Dim_Customer[Region],", "))
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: d00a203d-aaa8-491f-bf7c-9825435c3e49
+
+	measure 'Quality Notice' = "Hybrid portfolio data | simulated transactions & cost allocation | 2026 ends 30 Sep"
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 1d6eeaff-2ab9-4b10-a1bc-ba049701fbac
+
+	measure 'Financial Scope Notice' = "Reported-period selector only | business slicers do not allocate consolidated net profit"
+		displayFolder: 08 Dynamic Presentation
+		lineageTag: 5042c761-8f53-477f-9024-3015f5b98e86
+
+	column Placeholder
+		dataType: string
+		isHidden
+		lineageTag: c1078f3d-b351-428c-997f-6dac73edb35f
+		summarizeBy: none
+		sourceColumn: [Placeholder]
+
+	partition _Measures = calculated
+		mode: import
+		source = DATATABLE("Placeholder",STRING,{{""}})
+

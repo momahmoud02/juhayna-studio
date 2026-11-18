@@ -1,0 +1,248 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "juh00000000000000001",
+  "displayName": "Overview",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "5c2b1b6b0270d3e1b684",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F0F7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Juhayna Studio background'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "glass-Overview.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "1296bab609cfd7d6342d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "9fe6b9bfadd7108003bf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "f67df35d4c9eeea5d122",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "7643411f664b71171459",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "ead7902166dfa0dfdc9c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "86322dcf27a43a29c13c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "da6c1242baba0a8cd41d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "2585265d7e88b5bd69b2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dca2a38417e135f88649",
+      "target": "9ec23fa77c97a7f45848",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "1296bab609cfd7d6342d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "9fe6b9bfadd7108003bf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "f67df35d4c9eeea5d122",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "dca2a38417e135f88649",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "ead7902166dfa0dfdc9c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "86322dcf27a43a29c13c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "da6c1242baba0a8cd41d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "2585265d7e88b5bd69b2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7643411f664b71171459",
+      "target": "9ec23fa77c97a7f45848",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "1296bab609cfd7d6342d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "9fe6b9bfadd7108003bf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "f67df35d4c9eeea5d122",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "dca2a38417e135f88649",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "7643411f664b71171459",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "ead7902166dfa0dfdc9c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "86322dcf27a43a29c13c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "da6c1242baba0a8cd41d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2585265d7e88b5bd69b2",
+      "target": "9ec23fa77c97a7f45848",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "1296bab609cfd7d6342d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "9fe6b9bfadd7108003bf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "f67df35d4c9eeea5d122",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "dca2a38417e135f88649",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "7643411f664b71171459",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "ead7902166dfa0dfdc9c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "86322dcf27a43a29c13c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "da6c1242baba0a8cd41d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9ec23fa77c97a7f45848",
+      "target": "2585265d7e88b5bd69b2",
+      "type": "DataFilter"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "juh00000000000000002",
+  "displayName": "Products",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "7d1afae5147ddab5e5a9",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F0F7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Juhayna Studio background'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "glass-Products.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "eab90d473725f46b7161",
+      "target": "034559ea3b115d62cef6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eab90d473725f46b7161",
+      "target": "827af85590d47e14b61c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eab90d473725f46b7161",
+      "target": "035a761bfd215f29ffbf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eab90d473725f46b7161",
+      "target": "d811322b901fbcff6b5c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "035a761bfd215f29ffbf",
+      "target": "eab90d473725f46b7161",
+      "type": "DataFilter"
+    },
+    {
+      "source": "035a761bfd215f29ffbf",
+      "target": "034559ea3b115d62cef6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "035a761bfd215f29ffbf",
+      "target": "827af85590d47e14b61c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "035a761bfd215f29ffbf",
+      "target": "d811322b901fbcff6b5c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d811322b901fbcff6b5c",
+      "target": "eab90d473725f46b7161",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d811322b901fbcff6b5c",
+      "target": "034559ea3b115d62cef6",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d811322b901fbcff6b5c",
+      "target": "827af85590d47e14b61c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d811322b901fbcff6b5c",
+      "target": "035a761bfd215f29ffbf",
+      "type": "DataFilter"
+    }
+  ]
+}

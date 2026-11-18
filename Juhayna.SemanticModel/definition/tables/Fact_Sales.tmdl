@@ -1,0 +1,107 @@
+table Fact_Sales
+	lineageTag: ce459394-f2a8-4fa3-9a45-628c3d820a6f
+
+	column Transaction_ID
+		dataType: string
+		isHidden
+		lineageTag: e8a5edb7-8eb5-4d2f-bdf0-31f87a6de03f
+		summarizeBy: none
+		sourceColumn: Transaction_ID
+
+	column Order_Date
+		dataType: dateTime
+		isHidden
+		formatString: dd MMM yyyy
+		lineageTag: a558a03e-7187-49d6-a15c-3bddb8c6affa
+		summarizeBy: none
+		sourceColumn: Order_Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Product_ID
+		dataType: string
+		isHidden
+		lineageTag: f47491f3-d4d3-4d3d-84cd-bd7817b13507
+		summarizeBy: none
+		sourceColumn: Product_ID
+
+	column Customer_ID
+		dataType: string
+		isHidden
+		lineageTag: 4bae1e5f-cb23-458e-bc7b-42420b09a60c
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+	column Channel
+		dataType: string
+		isHidden
+		lineageTag: 5d69f576-a920-412e-82fb-ce6328d5bdd2
+		summarizeBy: none
+		sourceColumn: Channel
+
+	column Quantity_Units
+		dataType: int64
+		isHidden
+		lineageTag: 0c425292-79f5-4f6f-a59c-c2d1e3d44209
+		summarizeBy: none
+		sourceColumn: Quantity_Units
+
+	column Gross_Sales_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: 94a45369-8db0-4e66-b92e-3148dfd37555
+		summarizeBy: none
+		sourceColumn: Gross_Sales_EGP
+
+	column Discount_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: 4dfb16fc-1ae6-4a5f-aa9c-c60a4aa10d65
+		summarizeBy: none
+		sourceColumn: Discount_EGP
+
+	column Returns_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: c4827c87-0642-4371-9f5a-a1307b0346a1
+		summarizeBy: none
+		sourceColumn: Returns_EGP
+
+	column Net_Sales_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: bc308cf4-7fe0-4190-b64d-618a6cb4d6eb
+		summarizeBy: none
+		sourceColumn: Net_Sales_EGP
+
+	column Estimated_COGS_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: 366dd51d-c496-4bf7-afc4-f23f2a64c2e2
+		summarizeBy: none
+		sourceColumn: Estimated_COGS_EGP
+
+	column Estimated_Gross_Profit_EGP
+		dataType: decimal
+		isHidden
+		formatString: #,0.00
+		lineageTag: 5013de01-377b-4d01-97ce-edb21d85b7da
+		summarizeBy: none
+		sourceColumn: Estimated_Gross_Profit_EGP
+
+	partition Fact_Sales = m
+		mode: import
+		source =
+				let
+				    Sheet = SourceWorkbook{[Item="Sales_Transactions",Kind="Sheet"]}[Data],
+				    Headers = Table.PromoteHeaders(Sheet,[PromoteAllScalars=true]),
+				    Selected = Table.SelectColumns(Headers,{"Transaction_ID","Order_Date","Product_ID","Customer_ID","Channel","Quantity_Units","Gross_Sales_EGP","Discount_EGP","Returns_EGP","Net_Sales_EGP","Estimated_COGS_EGP","Estimated_Gross_Profit_EGP"}),
+				    Typed = Table.TransformColumnTypes(Selected,{{"Transaction_ID",type text},{"Order_Date",type date},{"Product_ID",type text},{"Customer_ID",type text},{"Channel",type text},{"Quantity_Units",Int64.Type},{"Gross_Sales_EGP",Currency.Type},{"Discount_EGP",Currency.Type},{"Returns_EGP",Currency.Type},{"Net_Sales_EGP",Currency.Type},{"Estimated_COGS_EGP",Currency.Type},{"Estimated_Gross_Profit_EGP",Currency.Type}},"en-US")
+				in
+				    Typed
+

@@ -1,0 +1,45 @@
+table Dim_Customer
+	lineageTag: cbb7cfd0-0068-4cc3-831a-7a35e590f916
+
+	column Customer_ID
+		dataType: string
+		isHidden
+		lineageTag: effddff2-a9e9-474d-a82d-e18cc49b7876
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+	column Customer_Name
+		dataType: string
+		lineageTag: aeb67e27-3901-4e8b-b7e8-52a07639eb05
+		summarizeBy: none
+		sourceColumn: Customer_Name
+
+	column Customer_Type
+		dataType: string
+		lineageTag: 84ae92c4-faf5-43e8-8e63-807bff42bb07
+		summarizeBy: none
+		sourceColumn: Customer_Type
+
+	column Governorate
+		dataType: string
+		lineageTag: 0bba3da3-2dc2-45ba-904a-b1244669a0f4
+		summarizeBy: none
+		sourceColumn: Governorate
+
+	column Region
+		dataType: string
+		lineageTag: 77be6045-b66e-4340-a6e4-5a837ac6a6a1
+		summarizeBy: none
+		sourceColumn: Region
+
+	partition Dim_Customer = m
+		mode: import
+		source =
+				let
+				    Sheet = SourceWorkbook{[Item="Customers",Kind="Sheet"]}[Data],
+				    Headers = Table.PromoteHeaders(Sheet,[PromoteAllScalars=true]),
+				    Selected = Table.SelectColumns(Headers,{"Customer_ID","Customer_Name","Customer_Type","Governorate","Region"}),
+				    Typed = Table.TransformColumnTypes(Selected,{{"Customer_ID",type text},{"Customer_Name",type text},{"Customer_Type",type text},{"Governorate",type text},{"Region",type text}},"en-US")
+				in
+				    Typed
+

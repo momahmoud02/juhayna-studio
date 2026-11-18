@@ -1,0 +1,143 @@
+{
+  "pages": [
+    {
+      "page": "Home",
+      "Cards": [],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Overview",
+      "Cards": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Sales Bn",
+        "",
+        "Sales LY Bn",
+        "Sales Bn 27.66.",
+        "Sales YoY Caption +22.4% vs same dates LY.",
+        "Period Caption 01 Jan 2026 — 30 Sep 2026.",
+        "",
+        "",
+        "Gross Profit Bn 6.65.",
+        "Transactions 28,375.",
+        "Gross Margin 24.0%.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Products",
+      "Cards": [
+        "",
+        "",
+        "Selling Products 16.",
+        "Top 5 Product Share 57.9%.",
+        "",
+        ""
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Regions",
+      "Cards": [
+        "",
+        "",
+        "Active Customers 350.",
+        "Sales Bn 27.66.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Customers",
+      "Cards": [
+        "",
+        "",
+        "",
+        "",
+        "Active Customers 350.",
+        "Top 5 Customer Share 3.5%.",
+        "Transactions per Customer 81.1.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Profitability",
+      "Cards": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Gross Profit Bn",
+        "",
+        "COGS Bn",
+        "Gross Profit Bn 6.65.",
+        "GP YoY Caption +28.1% vs same dates LY.",
+        "Period Caption 01 Jan 2026 — 30 Sep 2026.",
+        "Discount Rate 1.3%.",
+        "Return Rate 1.0%.",
+        "",
+        "",
+        "",
+        "Discounts Bn",
+        "",
+        "Returns Bn"
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Details",
+      "Cards": [
+        "Sales Bn 27.66.",
+        "Transactions 28,375.",
+        "Active Customers 350.",
+        "Selling Products 16."
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Financials",
+      "Cards": [
+        "Reported GP Bn 6.65.",
+        "Reported NP Bn 2.04.",
+        "Reported Net Margin 7.4%.",
+        "Reported Sales Bn 27.66.",
+        "Reconciliation Status Matched to the workbook period anchor."
+      ],
+      "VisualErrors": [],
+      "Pass": true
+    },
+    {
+      "page": "Methodology",
+      "Cards": [],
+      "VisualErrors": [],
+      "Pass": true
+    }
+  ],
+  "pass": true
+}

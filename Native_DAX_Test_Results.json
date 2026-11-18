@@ -1,0 +1,85 @@
+﻿[
+    {
+        "Test":  "Sales total 2023",
+        "Actual":  15536190159,
+        "Expected":  15536190159,
+        "Pass":  true
+    },
+    {
+        "Test":  "Sales total 2024",
+        "Actual":  24302616048,
+        "Expected":  24302616048,
+        "Pass":  true
+    },
+    {
+        "Test":  "Sales total 2025",
+        "Actual":  29984446222,
+        "Expected":  29984446222,
+        "Pass":  true
+    },
+    {
+        "Test":  "Sales total 2026",
+        "Actual":  27659390000,
+        "Expected":  27659390000,
+        "Pass":  true
+    },
+    {
+        "Test":  "2026 transaction count",
+        "Actual":  28375,
+        "Expected":  28375,
+        "Pass":  true
+    },
+    {
+        "Test":  "2026 gross profit",
+        "Actual":  6646000000.25,
+        "Expected":  6646000000,
+        "Pass":  true
+    },
+    {
+        "Test":  "2026 weighted margin",
+        "Actual":  0.24028006403069627,
+        "Expected":  0.24028006402165775,
+        "Pass":  true
+    },
+    {
+        "Test":  "No fabricated Q4 2026 transactions",
+        "Pass":  true
+    },
+    {
+        "Test":  "Greater Cairo transaction count",
+        "Actual":  9146,
+        "Expected":  9146,
+        "Pass":  true
+    },
+    {
+        "Test":  "Unused tables excluded from native model",
+        "Actual":  9,
+        "Pass":  true
+    },
+    {
+        "Test":  "Reported 9M2026 net profit",
+        "Actual":  2035180000,
+        "Expected":  2035180000,
+        "Pass":  true
+    },
+    {
+        "Test":  "Reported 9M2026 same-period growth",
+        "Actual":  0.24948144715698964,
+        "Expected":  0.24948144715698964,
+        "Pass":  true
+    },
+    {
+        "Test":  "9M2026 anchor reconciliation",
+        "Actual":  0,
+        "Expected":  0,
+        "Pass":  true
+    },
+    {
+        "Test":  "Overlapping annual/interim total suppressed",
+        "Pass":  true
+    },
+    {
+        "Test":  "All 80 DAX measures execute",
+        "Pass":  true
+    }
+]

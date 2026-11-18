@@ -1,0 +1,8 @@
+expression WorkbookPath = "C:/JuhaynaStudio/data/Juhayna_Sales_Analytics_Hybrid_Dataset_2023_2026.xlsx" meta [IsParameterQuery=true,Type="Text",IsParameterQueryRequired=true]
+	lineageTag: 3bb0cb1f-fdcf-4a0d-bdcb-d68f531ad356
+
+	annotation PBI_ResultType = Text
+
+expression SourceWorkbook = Excel.Workbook(File.Contents(WorkbookPath),null,true)
+	lineageTag: 8b8ddfbc-be69-46f6-a4d3-2b133bb1a6e7
+

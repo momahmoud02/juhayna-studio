@@ -1,0 +1,13 @@
+table Dim_Channel
+	lineageTag: 4b0342c7-58e5-48c1-bce9-e72910d87042
+
+	column Channel
+		dataType: string
+		lineageTag: 80d7848f-27c0-44a9-9bf9-a0b870b7dd39
+		summarizeBy: none
+		sourceColumn: [Channel]
+
+	partition Dim_Channel = calculated
+		mode: import
+		source = DISTINCT(SELECTCOLUMNS(Fact_Sales,"Channel",Fact_Sales[Channel]))
+

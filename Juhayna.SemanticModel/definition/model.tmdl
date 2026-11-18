@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["Fact_Sales","Dim_Product","Dim_Customer","Dim_Date","Fact_Financials","Reference_Sources","WorkbookPath","SourceWorkbook"]
+
+ref table Fact_Sales
+ref table Dim_Product
+ref table Dim_Customer
+ref table Dim_Date
+ref table Fact_Financials
+ref table Reference_Sources
+ref table _Measures
+ref table Dim_Channel
+ref table Dim_Period
+
+ref cultureInfo en-US
+

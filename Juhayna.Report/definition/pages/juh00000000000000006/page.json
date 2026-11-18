@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "juh00000000000000006",
+  "displayName": "Details",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "80f284715d36c50e3de4",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F0F7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Juhayna Studio background'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "glass-Details.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "78998e41201dac47ede1",
+      "target": "7047394cc3c02af83887",
+      "type": "DataFilter"
+    },
+    {
+      "source": "78998e41201dac47ede1",
+      "target": "47122b7243d7bc0ae225",
+      "type": "DataFilter"
+    },
+    {
+      "source": "78998e41201dac47ede1",
+      "target": "c5c4ad65474e8993e38f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "78998e41201dac47ede1",
+      "target": "0d3c1a3a1a984c5ace5a",
+      "type": "DataFilter"
+    }
+  ]
+}
